@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UP POS Integrations | Order Relay Webhook</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0, user-scalable=no" />
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+    <div class="landing-header">
+        <div class="header-container">
+            <div class="custom-row">
+                <div class="container-logo">
+                    <a href="index.html">
+                        <img src="images/up-logo.png" alt="tatacha logo" width="110px">
+                    </a>
+                </div>
+                <div class="container-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a href="order-relay.html">ORDER RELAY</a>
+                        </li>
+                        <li>
+                            <a href="rider-status.html">RIDER STATUS</a>
+                        </li>
+                        <li>
+                            <a href="">CONFIGURATIONS</a>
+                        </li>
+                        <li>
+                            <a href="mailto:integrations.team@urbanpiper.com" class="sign-up-btn" style=" color: #797979">SUPPORT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="landing-body">
+        <div class="section-rider">
+            <h1>ORDER RELAY</h1>
+            <br>
+            <form id="order_update" onsubmit="alert('submit!');return false">
+                <label class="p-left"><b>Webhook Details</b></label>
+                <div class="row">
+                    <div class="col-md-12"> <input type="url" id="url" class="form-control" placeholder="Webhook URL*" required> </div>
+                </div>
+                <div class="row mt-3" style="">
+                    <div class="col-md-6"> <input type="text" id="auth_key" class="form-control" placeholder="Auth Header Key" required> </div>
+                    <div class="col-md-6"> <input type="text" id="auth_value" class="form-control" placeholder="Auth Header Value" required> </div>
+                </div>
+                <hr>
+                <label class="p-left"><b>ORDER DETAILS</b></label>
+                <div class="row mt-3">
+                    <div class="col-md-2"> <input type="text" id="a_biz_id" class="form-control" placeholder="Biz id" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_name" class="form-control" placeholder="Aggregator Name (ex: zomato, swiggy, etc)" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_agg_id" class="form-control" placeholder="Aggregator Order ID" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_up_id" class="form-control" placeholder="UrbanPiper Order ID" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-2"> <input type="text" id="a_total_discount" class="form-control" placeholder="Total Discount" required> </div>
+                    <div class="col-md-2"> <input type="text" id="a_agg_discount" class="form-control" placeholder="Agg. Discount" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_delivery_type" class="form-control" placeholder="Delivery Type (ex: partner, self, pickup)" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_payment" class="form-control" placeholder="Payment Mode (ex: cash, payment_gateway, aggregator)" required> </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"> <input type="text" id="a_instruction" class="form-control" placeholder="Order Instructions" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_pc" class="form-control" placeholder="Packaging Charges" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_pc_tax" class="form-control" placeholder="Tax % on Packaging Charges" required> </div>
+
+                </div>
+                <hr>
+                <label class="p-left"><b>STORE DETAILS</b></label>
+                <div class="row mt-3">
+                    <div class="col-md-6"> <input type="text" id="a_pos_store_id" class="form-control" placeholder="POS Store ID" required> </div>
+                </div>
+                <hr>
+                <label class="p-left"><b>ITEM DETAILS</b></label>
+                <p id="item-1">Item 1</p>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_item_1_name" class="form-control" placeholder="Item Name" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_1_id" class="form-control" placeholder="Item POS ID" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_1_price" class="form-control" placeholder="Item Base Price" required> </div>
+                    <div class="col-md-2"> <input type="text" id="a_item_1_qty" class="form-control" placeholder="Item Quantity" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_otp_1_name" class="form-control" placeholder="Option 1 Name" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_1_price" class="form-control" placeholder="Option 1 Price" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_1_id" class="form-control" placeholder="Option 1 POS ID" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_otp_2_name" class="form-control" placeholder="Option 2 Name" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_2_price" class="form-control" placeholder="Option 2 Price" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_2_id" class="form-control" placeholder="Option 2 POS ID" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3"> <input type="text" id="a_item_1_cgst" class="form-control" placeholder="CGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_1_sgst" class="form-control" placeholder="SGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_1_pc" class="form-control" placeholder="Packaging Charge Value" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_1_pc_tax" class="form-control" placeholder="Tax percentage on Packaging Charge" required> </div>
+                </div>
+                <br>
+                <p id="item-2">Item 2</p>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_item_2_name" class="form-control" placeholder="Item Name" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_2_id" class="form-control" placeholder="Item POS ID" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_2_price" class="form-control" placeholder="Item Base Price" required> </div>
+                    <div class="col-md-2"> <input type="text" id="a_item_2_qty" class="form-control" placeholder="Quantity" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_otp_3_name" class="form-control" placeholder="Option 1 Name" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_3_price" class="form-control" placeholder="Option 1 Price" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_3_id" class="form-control" placeholder="Option 1 POS ID" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_otp_4_name" class="form-control" placeholder="Option 2 Name" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_4_price" class="form-control" placeholder="Option 2 Price" required> </div>
+                    <div class="col-md-4"> <input type="text" id="a_otp_4_id" class="form-control" placeholder="Option 2 POS ID" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3"> <input type="text" id="a_item_2_cgst" class="form-control" placeholder="CGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_2_sgst" class="form-control" placeholder="SGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_2_pc" class="form-control" placeholder="Packaging Charge Value" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_2_pc_tax" class="form-control" placeholder="Tax percentage on Packaging Charge" required> </div>
+                </div>
+                <br>
+                <p id="item-3">Item 3</p>
+                <div class="row mt-3">
+                    <div class="col-md-4"> <input type="text" id="a_item_3_name" class="form-control" placeholder="Item Name" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_3_id" class="form-control" placeholder="Item POS ID" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_3_price" class="form-control" placeholder="Item Base Price" required> </div>
+                    <div class="col-md-2"> <input type="text" id="a_item_3_qty" class="form-control" placeholder="Quantity" required> </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3"> <input type="text" id="a_item_3_cgst" class="form-control" placeholder="CGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_3_sgst" class="form-control" placeholder="SGST percentage on Item" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_3_pc" class="form-control" placeholder="Packaging Charge Value" required> </div>
+                    <div class="col-md-3"> <input type="text" id="a_item_3_pc_tax" class="form-control" placeholder="Tax percentage on Packaging Charge" required> </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-3 submit-button"><input class="submit" type="button" onclick="order_details()" value="Trigger"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
