@@ -13,7 +13,7 @@
             <div class="custom-row">
                 <div class="container-logo">
                     <a href="index.html">
-                        <img src="images/up-logo.png" alt="tatacha logo" width="110px">
+                        <img src="images/logo-up.png" alt="tatacha logo" width="110px">
                     </a>
                 </div>
                 <div class="container-menu">
@@ -21,17 +21,18 @@
                         <li>
                             <a href="index.html">HOME</a>
                         </li>
-                        <li>
-                            <a href="order-relay.html">ORDER RELAY</a>
-                        </li>
-                        <li>
-                            <a href="rider-status.html">RIDER STATUS</a>
-                        </li>
+                        <div class="dropdown">
+                            <div class="dropbtn">WEBHOOKS <i class="arrow down"></i></div>
+                            <div class="dropdown-content">
+                                <a href="order-relay-webhook.html">Order Relay</a>
+                                <a href="rider-status.html">Rider Status</a>
+                            </div>
+                        </div>
                         <li>
                             <a href="">CONFIGURATIONS</a>
                         </li>
                         <li>
-                            <a href="mailto:integrations.team@urbanpiper.com" class="sign-up-btn" style=" color: #797979">SUPPORT</a>
+                            <a href="mailto:integrations.team@urbanpiper.com" class="sign-up-btn">SUPPORT</a>
                         </li>
                     </ul>
                 </div>
@@ -40,30 +41,24 @@
     </div>
     <div class="landing-body">
         <div class="section">
-          <img src="images/pos-up.png" width="100%">
-          <div class="section-1">
-          <div class="row">
-            <div class="col">
-            <div class="col-md-6">
-              <h1>POS INTEGRATIONS SIMULATOR</h1>
-              <h3>A dashboard to simulate the ordering APIs of UrbanPiper.</h3>
-              <p>Below are the features you can simulate using this dashboard,<br/>
-                <ul>
-                  <li><u>Order Relay Webhook</u> — Order Relay simulation of aggregators with various scenarios such as, aggregator & merchant discounts, item and order level taxes, item and order level charges, taxes on charges, etc</li>
-                  <li><u>Rider Status Update Webhook</u> — Simulation of rider status such as assigned, at-store, delivered, etc</li>
-                  <li><u>Swiggy Cancellation Status Webhook</u> — A webhook simulation for Swiggy order cancellation request.</li>
-                  <li><u>Store Actions Webhook</u> — A store actions API webhook simulation for different aggregators</li>
-                  <li><u>Item Actions Webhook</u> — A item actions API webhook simulation for different aggregators</li>
-                </ul>
+            <div class="section-1">
+                <h1>POS INTEGRATIONS — PAYLOAD SIMULATOR</h1>
+                <h3>A dashboard to simulate the webhook payloads and other ordering APIs of UrbanPiper. This tool helps the POS partner to simulate various scenarios which are faced in production environment.</h3>
+                <p>Below are the features you can simulate using this dashboard,<br />
+                    <ul>
+                        <li><u>Order Relay Webhook</u> — Order Relay simulation of aggregators with various scenarios such as, aggregator & merchant discounts, item and order level taxes, item and order level charges, taxes on charges, etc</li><br>
+                        <li><u>Rider Status Update Webhook</u> — Simulation of rider status such as assigned, at-store, delivered, etc</li><br>
+                        <li><u>Swiggy Cancellation Status Webhook</u> — A webhook simulation for Swiggy order cancellation request.</li><br>
+                        <li><u>Store Actions Webhook</u> — A store actions API webhook simulation for different aggregators</li><br>
+                        <li><u>Item Actions Webhook</u> — A item actions API webhook simulation for different aggregators</li><br>
+                    </ul>
             </div>
-            <div class="col-md-6">
-              <img src="images/pos-hub.png" width="600px">
+            <div class="section-2">
+                <img src="images/pos-up.png" width="100%" style="border-radius: 10px;">
+                <div>
+                </div>
             </div>
-          </div>
-          </div>
         </div>
-        </div>
-    </div>
 </body>
 
 </html>
